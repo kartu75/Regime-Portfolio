@@ -123,3 +123,29 @@ pip install yfinance hmmlearn scipy matplotlib pandas numpy
 ```
 
 Open `regime_portfolio.ipynb` and run all cells.
+---
+
+## How to Navigate
+
+The project is a single Jupyter notebook — `regime_portfolio.ipynb` — structured in order. Run cells top to bottom.
+
+**Cell structure:**
+
+1. **Imports and data download** — downloads 8 Nifty 50 stocks via yfinance
+2. **Log returns and feature matrix** — converts prices to returns, builds 4 features per day
+3. **HMM fitting** — trains the regime detection model
+4. **Regime decoding and smoothing** — labels every day as Bull / Sideways / Bear
+5. **Regime visualization** — plots cumulative returns shaded by regime (`regime_plot.png`)
+6. **Portfolio optimization** — builds 3 Sharpe-maximizing portfolios, one per regime (`portfolio_weights.png`)
+7. **Efficient frontier** — plots all 3 frontiers on one chart (`efficient_frontiers.png`)
+8. **Current regime predictor** — outputs today's recommended portfolio and allocations
+9. **Out-of-sample backtest** — validates on 4 unseen stocks, compares against benchmark (`backtest.png`)
+
+**Output files generated:**
+
+| File | Description |
+|------|-------------|
+| `regime_plot.png` | HMM regime detection over 2015–2024 |
+| `portfolio_weights.png` | Allocation breakdown per regime |
+| `efficient_frontiers.png` | Risk-return frontier for all 3 regimes |
+| `backtest.png` | Strategy vs benchmark cumulative returns |
